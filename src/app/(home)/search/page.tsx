@@ -40,8 +40,7 @@ const COURSES_PER_PAGE = 9
 
 function CourseCard({ course }: { course: typeof allCourses[0] }) {
   return (
-    <Link href={`/course/${course.id}`} className="block">
-    <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group p-4">
+    <Link href={`/course/${course.id}`} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group p-4 block">
       {/* Thumbnail with overlay badges */}
       <div className="relative h-52 bg-gray-100 rounded-2xl overflow-hidden mb-5">
         <Image
@@ -109,7 +108,6 @@ function CourseCard({ course }: { course: typeof allCourses[0] }) {
           <span className="text-sm text-gray-400">/course</span>
         </div>
       </div>
-    </div>
     </Link>
   )
 }

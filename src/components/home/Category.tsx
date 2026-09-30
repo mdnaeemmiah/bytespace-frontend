@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import img1 from "../../asstes/category/Frame (1).png"
 import img2 from "../../asstes/category/Frame (2).png"
@@ -138,9 +139,10 @@ export default function Category() {
         {/* Course Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course) => (
-            <div
+            <Link
               key={course.id}
-              className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow p-4"
+              href={`/course/${course.id}`}
+              className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow p-4 block cursor-pointer"
             >
               {/* Course Image */}
               <div className="relative h-56 bg-gray-200 rounded-2xl overflow-hidden mb-4">
@@ -197,7 +199,7 @@ export default function Category() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
