@@ -47,7 +47,7 @@ export default function Navbar() {
               Courses
             </Link>
             <Link 
-              href="/home" 
+              href="/creators" 
               className="hover:text-blue-200 transition-colors font-medium"
             >
               Creators
