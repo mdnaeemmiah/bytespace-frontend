@@ -1,7 +1,10 @@
-import React from 'react'
+import Register from '@/src/components/auth/Register'
+
 
 export default function page() {
   return (
-    <div>page</div>
+<div>
+  <Register></Register>
+</div>
   )
 }

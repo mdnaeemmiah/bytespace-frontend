@@ -2,11 +2,22 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import logo from '../asstes/navbar/Vector.png'
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <nav className="bg-blue-600 text-white">
+    <nav className={`fixed top-0 left-0 right-0 z-50 text-white transition-all duration-300 ${
+      scrolled ? 'bg-blue-600 shadow-lg' : 'bg-transparent'
+    }`}>
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -30,13 +41,13 @@ export default function Navbar() {
               Home
             </Link>
             <Link 
-              href="/courses" 
+              href="/home" 
               className="hover:text-blue-200 transition-colors font-medium"
             >
               Courses
             </Link>
             <Link 
-              href="/creators" 
+              href="/home" 
               className="hover:text-blue-200 transition-colors font-medium"
             >
               Creators
@@ -79,7 +90,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2 hover:bg-blue-700 rounded transition-colors"
+            className="md:hidden p-2 hover:bg-white/10 rounded transition-colors"
             aria-label="Menu"
           >
             <svg 
